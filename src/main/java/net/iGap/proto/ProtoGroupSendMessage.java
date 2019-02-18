@@ -91,6 +91,21 @@ public final class ProtoGroupSendMessage {
      * <code>optional uint64 random_id = 10;</code>
      */
     long getRandomId();
+
+    /**
+     * <code>optional uint32 additional_type = 11;</code>
+     */
+    int getAdditionalType();
+
+    /**
+     * <code>optional string additional_data = 12;</code>
+     */
+    java.lang.String getAdditionalData();
+    /**
+     * <code>optional string additional_data = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getAdditionalDataBytes();
   }
   /**
    * Protobuf type {@code proto.GroupSendMessage}
@@ -103,6 +118,7 @@ public final class ProtoGroupSendMessage {
     private GroupSendMessage() {
       message_ = "";
       attachment_ = "";
+      additionalData_ = "";
     }
     public static final int REQUEST_FIELD_NUMBER = 1;
     private net.iGap.proto.ProtoRequest.Request request_;
@@ -512,6 +528,75 @@ public final class ProtoGroupSendMessage {
       randomId_ = 0L;
     }
 
+    public static final int ADDITIONAL_TYPE_FIELD_NUMBER = 11;
+    private int additionalType_;
+    /**
+     * <code>optional uint32 additional_type = 11;</code>
+     */
+    public int getAdditionalType() {
+      return additionalType_;
+    }
+    /**
+     * <code>optional uint32 additional_type = 11;</code>
+     */
+    private void setAdditionalType(int value) {
+      
+      additionalType_ = value;
+    }
+    /**
+     * <code>optional uint32 additional_type = 11;</code>
+     */
+    private void clearAdditionalType() {
+      
+      additionalType_ = 0;
+    }
+
+    public static final int ADDITIONAL_DATA_FIELD_NUMBER = 12;
+    private java.lang.String additionalData_;
+    /**
+     * <code>optional string additional_data = 12;</code>
+     */
+    public java.lang.String getAdditionalData() {
+      return additionalData_;
+    }
+    /**
+     * <code>optional string additional_data = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAdditionalDataBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(additionalData_);
+    }
+    /**
+     * <code>optional string additional_data = 12;</code>
+     */
+    private void setAdditionalData(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      additionalData_ = value;
+    }
+    /**
+     * <code>optional string additional_data = 12;</code>
+     */
+    private void clearAdditionalData() {
+      
+      additionalData_ = getDefaultInstance().getAdditionalData();
+    }
+    /**
+     * <code>optional string additional_data = 12;</code>
+     */
+    private void setAdditionalDataBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      additionalData_ = value.toStringUtf8();
+    }
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (request_ != null) {
@@ -543,6 +628,12 @@ public final class ProtoGroupSendMessage {
       }
       if (randomId_ != 0L) {
         output.writeUInt64(10, randomId_);
+      }
+      if (additionalType_ != 0) {
+        output.writeUInt32(11, additionalType_);
+      }
+      if (!additionalData_.isEmpty()) {
+        output.writeString(12, getAdditionalData());
       }
     }
 
@@ -590,6 +681,14 @@ public final class ProtoGroupSendMessage {
       if (randomId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(10, randomId_);
+      }
+      if (additionalType_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(11, additionalType_);
+      }
+      if (!additionalData_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(12, getAdditionalData());
       }
       memoizedSerializedSize = size;
       return size;
@@ -1043,6 +1142,69 @@ public final class ProtoGroupSendMessage {
         return this;
       }
 
+      /**
+       * <code>optional uint32 additional_type = 11;</code>
+       */
+      public int getAdditionalType() {
+        return instance.getAdditionalType();
+      }
+      /**
+       * <code>optional uint32 additional_type = 11;</code>
+       */
+      public Builder setAdditionalType(int value) {
+        copyOnWrite();
+        instance.setAdditionalType(value);
+        return this;
+      }
+      /**
+       * <code>optional uint32 additional_type = 11;</code>
+       */
+      public Builder clearAdditionalType() {
+        copyOnWrite();
+        instance.clearAdditionalType();
+        return this;
+      }
+
+      /**
+       * <code>optional string additional_data = 12;</code>
+       */
+      public java.lang.String getAdditionalData() {
+        return instance.getAdditionalData();
+      }
+      /**
+       * <code>optional string additional_data = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAdditionalDataBytes() {
+        return instance.getAdditionalDataBytes();
+      }
+      /**
+       * <code>optional string additional_data = 12;</code>
+       */
+      public Builder setAdditionalData(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setAdditionalData(value);
+        return this;
+      }
+      /**
+       * <code>optional string additional_data = 12;</code>
+       */
+      public Builder clearAdditionalData() {
+        copyOnWrite();
+        instance.clearAdditionalData();
+        return this;
+      }
+      /**
+       * <code>optional string additional_data = 12;</code>
+       */
+      public Builder setAdditionalDataBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setAdditionalDataBytes(value);
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:proto.GroupSendMessage)
     }
     protected final Object dynamicMethod(
@@ -1079,6 +1241,10 @@ public final class ProtoGroupSendMessage {
           forwardFrom_ = visitor.visitMessage(forwardFrom_, other.forwardFrom_);
           randomId_ = visitor.visitLong(randomId_ != 0L, randomId_,
               other.randomId_ != 0L, other.randomId_);
+          additionalType_ = visitor.visitInt(additionalType_ != 0, additionalType_,
+              other.additionalType_ != 0, other.additionalType_);
+          additionalData_ = visitor.visitString(!additionalData_.isEmpty(), additionalData_,
+              !other.additionalData_.isEmpty(), other.additionalData_);
           if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
               .INSTANCE) {
           }
@@ -1186,6 +1352,17 @@ public final class ProtoGroupSendMessage {
                 case 80: {
 
                   randomId_ = input.readUInt64();
+                  break;
+                }
+                case 88: {
+
+                  additionalType_ = input.readUInt32();
+                  break;
+                }
+                case 98: {
+                  String s = input.readStringRequireUtf8();
+
+                  additionalData_ = s;
                   break;
                 }
               }

@@ -5118,6 +5118,11 @@ public final class ProtoGlobal {
      * <code>optional bool verified = 17;</code>
      */
     boolean getVerified();
+
+    /**
+     * <code>optional bool bot = 18;</code>
+     */
+    boolean getBot();
   }
   /**
    * Protobuf type {@code proto.RegisteredUser}
@@ -5878,6 +5883,29 @@ public final class ProtoGlobal {
       verified_ = false;
     }
 
+    public static final int BOT_FIELD_NUMBER = 18;
+    private boolean bot_;
+    /**
+     * <code>optional bool bot = 18;</code>
+     */
+    public boolean getBot() {
+      return bot_;
+    }
+    /**
+     * <code>optional bool bot = 18;</code>
+     */
+    private void setBot(boolean value) {
+      
+      bot_ = value;
+    }
+    /**
+     * <code>optional bool bot = 18;</code>
+     */
+    private void clearBot() {
+      
+      bot_ = false;
+    }
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (id_ != 0L) {
@@ -5930,6 +5958,9 @@ public final class ProtoGlobal {
       }
       if (verified_ != false) {
         output.writeBool(17, verified_);
+      }
+      if (bot_ != false) {
+        output.writeBool(18, bot_);
       }
     }
 
@@ -6005,6 +6036,10 @@ public final class ProtoGlobal {
       if (verified_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(17, verified_);
+      }
+      if (bot_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(18, bot_);
       }
       memoizedSerializedSize = size;
       return size;
@@ -6655,6 +6690,29 @@ public final class ProtoGlobal {
         return this;
       }
 
+      /**
+       * <code>optional bool bot = 18;</code>
+       */
+      public boolean getBot() {
+        return instance.getBot();
+      }
+      /**
+       * <code>optional bool bot = 18;</code>
+       */
+      public Builder setBot(boolean value) {
+        copyOnWrite();
+        instance.setBot(value);
+        return this;
+      }
+      /**
+       * <code>optional bool bot = 18;</code>
+       */
+      public Builder clearBot() {
+        copyOnWrite();
+        instance.clearBot();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:proto.RegisteredUser)
     }
     protected final Object dynamicMethod(
@@ -6708,6 +6766,8 @@ public final class ProtoGlobal {
               !other.bio_.isEmpty(), other.bio_);
           verified_ = visitor.visitBoolean(verified_ != false, verified_,
               other.verified_ != false, other.verified_);
+          bot_ = visitor.visitBoolean(bot_ != false, bot_,
+              other.bot_ != false, other.bot_);
           if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
               .INSTANCE) {
           }
@@ -6832,6 +6892,11 @@ public final class ProtoGlobal {
                 case 136: {
 
                   verified_ = input.readBool();
+                  break;
+                }
+                case 144: {
+
+                  bot_ = input.readBool();
                   break;
                 }
               }
@@ -7422,6 +7487,21 @@ public final class ProtoGlobal {
     long getRandomId();
 
     /**
+     * <code>optional uint32 additional_type = 23;</code>
+     */
+    int getAdditionalType();
+
+    /**
+     * <code>optional string additional_data = 24;</code>
+     */
+    java.lang.String getAdditionalData();
+    /**
+     * <code>optional string additional_data = 24;</code>
+     */
+    com.google.protobuf.ByteString
+        getAdditionalDataBytes();
+
+    /**
      * <code>optional .proto.RoomMessage.ExtraType extra_type = 19;</code>
      */
     int getExtraTypeValue();
@@ -7449,6 +7529,7 @@ public final class ProtoGlobal {
       RoomMessageOrBuilder {
     private RoomMessage() {
       message_ = "";
+      additionalData_ = "";
     }
     /**
      * Protobuf enum {@code proto.RoomMessage.ExtraType}
@@ -10120,6 +10201,75 @@ public final class ProtoGlobal {
       randomId_ = 0L;
     }
 
+    public static final int ADDITIONAL_TYPE_FIELD_NUMBER = 23;
+    private int additionalType_;
+    /**
+     * <code>optional uint32 additional_type = 23;</code>
+     */
+    public int getAdditionalType() {
+      return additionalType_;
+    }
+    /**
+     * <code>optional uint32 additional_type = 23;</code>
+     */
+    private void setAdditionalType(int value) {
+      
+      additionalType_ = value;
+    }
+    /**
+     * <code>optional uint32 additional_type = 23;</code>
+     */
+    private void clearAdditionalType() {
+      
+      additionalType_ = 0;
+    }
+
+    public static final int ADDITIONAL_DATA_FIELD_NUMBER = 24;
+    private java.lang.String additionalData_;
+    /**
+     * <code>optional string additional_data = 24;</code>
+     */
+    public java.lang.String getAdditionalData() {
+      return additionalData_;
+    }
+    /**
+     * <code>optional string additional_data = 24;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAdditionalDataBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(additionalData_);
+    }
+    /**
+     * <code>optional string additional_data = 24;</code>
+     */
+    private void setAdditionalData(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      additionalData_ = value;
+    }
+    /**
+     * <code>optional string additional_data = 24;</code>
+     */
+    private void clearAdditionalData() {
+      
+      additionalData_ = getDefaultInstance().getAdditionalData();
+    }
+    /**
+     * <code>optional string additional_data = 24;</code>
+     */
+    private void setAdditionalDataBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      additionalData_ = value.toStringUtf8();
+    }
+
     public static final int EXTRA_TYPE_FIELD_NUMBER = 19;
     private int extraType_;
     /**
@@ -10279,6 +10429,12 @@ public final class ProtoGlobal {
       if (wallet_ != null) {
         output.writeMessage(22, getWallet());
       }
+      if (additionalType_ != 0) {
+        output.writeUInt32(23, additionalType_);
+      }
+      if (!additionalData_.isEmpty()) {
+        output.writeString(24, getAdditionalData());
+      }
     }
 
     public int getSerializedSize() {
@@ -10373,6 +10529,14 @@ public final class ProtoGlobal {
       if (wallet_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(22, getWallet());
+      }
+      if (additionalType_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(23, additionalType_);
+      }
+      if (!additionalData_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(24, getAdditionalData());
       }
       memoizedSerializedSize = size;
       return size;
@@ -11142,6 +11306,69 @@ public final class ProtoGlobal {
       }
 
       /**
+       * <code>optional uint32 additional_type = 23;</code>
+       */
+      public int getAdditionalType() {
+        return instance.getAdditionalType();
+      }
+      /**
+       * <code>optional uint32 additional_type = 23;</code>
+       */
+      public Builder setAdditionalType(int value) {
+        copyOnWrite();
+        instance.setAdditionalType(value);
+        return this;
+      }
+      /**
+       * <code>optional uint32 additional_type = 23;</code>
+       */
+      public Builder clearAdditionalType() {
+        copyOnWrite();
+        instance.clearAdditionalType();
+        return this;
+      }
+
+      /**
+       * <code>optional string additional_data = 24;</code>
+       */
+      public java.lang.String getAdditionalData() {
+        return instance.getAdditionalData();
+      }
+      /**
+       * <code>optional string additional_data = 24;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAdditionalDataBytes() {
+        return instance.getAdditionalDataBytes();
+      }
+      /**
+       * <code>optional string additional_data = 24;</code>
+       */
+      public Builder setAdditionalData(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setAdditionalData(value);
+        return this;
+      }
+      /**
+       * <code>optional string additional_data = 24;</code>
+       */
+      public Builder clearAdditionalData() {
+        copyOnWrite();
+        instance.clearAdditionalData();
+        return this;
+      }
+      /**
+       * <code>optional string additional_data = 24;</code>
+       */
+      public Builder setAdditionalDataBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setAdditionalDataBytes(value);
+        return this;
+      }
+
+      /**
        * <code>optional .proto.RoomMessage.ExtraType extra_type = 19;</code>
        */
       public int getExtraTypeValue() {
@@ -11274,6 +11501,10 @@ public final class ProtoGlobal {
               other.previousMessageId_ != 0L, other.previousMessageId_);
           randomId_ = visitor.visitLong(randomId_ != 0L, randomId_,
               other.randomId_ != 0L, other.randomId_);
+          additionalType_ = visitor.visitInt(additionalType_ != 0, additionalType_,
+              other.additionalType_ != 0, other.additionalType_);
+          additionalData_ = visitor.visitString(!additionalData_.isEmpty(), additionalData_,
+              !other.additionalData_.isEmpty(), other.additionalData_);
           extraType_ = visitor.visitInt(extraType_ != 0, extraType_,    other.extraType_ != 0, other.extraType_);
           channelExtra_ = visitor.visitMessage(channelExtra_, other.channelExtra_);
           if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
@@ -11484,6 +11715,17 @@ public final class ProtoGlobal {
                     wallet_ = subBuilder.buildPartial();
                   }
 
+                  break;
+                }
+                case 184: {
+
+                  additionalType_ = input.readUInt32();
+                  break;
+                }
+                case 194: {
+                  String s = input.readStringRequireUtf8();
+
+                  additionalData_ = s;
                   break;
                 }
               }
@@ -12021,6 +12263,11 @@ public final class ProtoGlobal {
      * <code>optional .proto.RoomMessage pinned_message = 17;</code>
      */
     net.iGap.proto.ProtoGlobal.RoomMessage getPinnedMessage();
+
+    /**
+     * <code>optional uint32 priority = 18;</code>
+     */
+    int getPriority();
 
     /**
      * <code>optional .proto.ChatRoom chat_room_extra = 11;</code>
@@ -12677,6 +12924,29 @@ public final class ProtoGlobal {
       
     }
 
+    public static final int PRIORITY_FIELD_NUMBER = 18;
+    private int priority_;
+    /**
+     * <code>optional uint32 priority = 18;</code>
+     */
+    public int getPriority() {
+      return priority_;
+    }
+    /**
+     * <code>optional uint32 priority = 18;</code>
+     */
+    private void setPriority(int value) {
+      
+      priority_ = value;
+    }
+    /**
+     * <code>optional uint32 priority = 18;</code>
+     */
+    private void clearPriority() {
+      
+      priority_ = 0;
+    }
+
     public static final int CHAT_ROOM_EXTRA_FIELD_NUMBER = 11;
     private net.iGap.proto.ProtoGlobal.ChatRoom chatRoomExtra_;
     /**
@@ -12886,6 +13156,9 @@ public final class ProtoGlobal {
       if (pinnedMessage_ != null) {
         output.writeMessage(17, getPinnedMessage());
       }
+      if (priority_ != 0) {
+        output.writeUInt32(18, priority_);
+      }
     }
 
     public int getSerializedSize() {
@@ -12960,6 +13233,10 @@ public final class ProtoGlobal {
       if (pinnedMessage_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(17, getPinnedMessage());
+      }
+      if (priority_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(18, priority_);
       }
       memoizedSerializedSize = size;
       return size;
@@ -13537,6 +13814,29 @@ public final class ProtoGlobal {
       }
 
       /**
+       * <code>optional uint32 priority = 18;</code>
+       */
+      public int getPriority() {
+        return instance.getPriority();
+      }
+      /**
+       * <code>optional uint32 priority = 18;</code>
+       */
+      public Builder setPriority(int value) {
+        copyOnWrite();
+        instance.setPriority(value);
+        return this;
+      }
+      /**
+       * <code>optional uint32 priority = 18;</code>
+       */
+      public Builder clearPriority() {
+        copyOnWrite();
+        instance.clearPriority();
+        return this;
+      }
+
+      /**
        * <code>optional .proto.ChatRoom chat_room_extra = 11;</code>
        */
       public boolean hasChatRoomExtra() {
@@ -13714,6 +14014,8 @@ public final class ProtoGlobal {
           pinId_ = visitor.visitLong(pinId_ != 0L, pinId_,
               other.pinId_ != 0L, other.pinId_);
           pinnedMessage_ = visitor.visitMessage(pinnedMessage_, other.pinnedMessage_);
+          priority_ = visitor.visitInt(priority_ != 0, priority_,
+              other.priority_ != 0, other.priority_);
           chatRoomExtra_ = visitor.visitMessage(chatRoomExtra_, other.chatRoomExtra_);
           groupRoomExtra_ = visitor.visitMessage(groupRoomExtra_, other.groupRoomExtra_);
           channelRoomExtra_ = visitor.visitMessage(channelRoomExtra_, other.channelRoomExtra_);
@@ -13885,6 +14187,11 @@ public final class ProtoGlobal {
                     pinnedMessage_ = subBuilder.buildPartial();
                   }
 
+                  break;
+                }
+                case 144: {
+
+                  priority_ = input.readUInt32();
                   break;
                 }
               }
